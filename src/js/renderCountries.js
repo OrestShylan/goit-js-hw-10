@@ -10,18 +10,16 @@ export default function renderCountries(dataCountries) {
     Notify.info('Too many matches found. Please enter a more specific name.');
   } else if (quantityCountries >= 2 && quantityCountries <= 10) {
     dataCountries.map(country => {
-      countryItems
-        .push(
-          `
+      countryItems.push(
+        `
         <li class="wrap-flag_item">
           <img src='${country.flags.svg}' alt='' width=40 class="flags"/>
           <span>${country.name.official}</span>
         </li>`
-        )
-        .join('');
+      );
     });
     countryInfo.innerHTML = '';
-    countryList.innerHTML = countryItems;
+    countryList.innerHTML = countryItems.join('');
   } else {
     countryInfo.innerHTML = `
           <div class="wrap_flag">
